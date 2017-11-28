@@ -1622,7 +1622,7 @@ Stages.copd8.prototype = {
         game.load.image('btnHome', './photo/btnHome.png');
     },
     create: function() {
-        sound.destroy();
+        this.game.sound.stopAll();
         //remove(sound);
         game.add.sprite(0, 0, 'copd8');
         score = this.add.text(450, 250, number.score, { fill: "#ffffff" });
