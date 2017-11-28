@@ -843,7 +843,7 @@ Stages.playGame.prototype = {
         }
     },
     nextPage: function() {
-        sound.stop();
+        sound.stopAll();
         this.state.start('copd8');
 
     },
@@ -1469,7 +1469,7 @@ Stages.playGame.prototype = {
 
     },
     finish: function() {
-        sound.stop();
+        sound.stopAll();
         game.state.start('copd8');
     },
     checkP2: function() {
