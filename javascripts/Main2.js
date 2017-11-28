@@ -217,7 +217,7 @@ Stages.playGame = function(game) {
     var m1, m2, m3, cancelM;
     var info, finish, people, people1, people4, people5, people6, people7, people8, people10, people9;
     var checkP2 = false;
-    var btnHome, checkClicko, sound;
+    var btnHome, checkClicko;
 };
 Stages.playGame.prototype = {
     preload: function() {
@@ -843,7 +843,7 @@ Stages.playGame.prototype = {
         }
     },
     nextPage: function() {
-        sound.stopAll();
+        //sound.stopAll();
         this.state.start('copd8');
 
     },
@@ -1469,7 +1469,7 @@ Stages.playGame.prototype = {
 
     },
     finish: function() {
-        sound.stopAll();
+        //sound.stopAll();
         game.state.start('copd8');
     },
     checkP2: function() {
@@ -1622,6 +1622,8 @@ Stages.copd8.prototype = {
         game.load.image('btnHome', './photo/btnHome.png');
     },
     create: function() {
+        sound.destroy();
+
         game.add.sprite(0, 0, 'copd8');
         score = this.add.text(450, 250, number.score, { fill: "#ffffff" });
         score.anchor.x = 0.5;
@@ -1843,6 +1845,7 @@ var plan = ['- O2 cannula 3 LPM ', 'Keep O2 sat > 92 %',
     '- Sulbutamol inhalation ', '1 NB ทุก 1 ชม.',
     '- Dexamethazone 5 mg ', 'IV stat then ทุก 6 ชม'
 ];
+var sound;
 var otherp = '';
 var otherp2 = '';
 var othero = '';
