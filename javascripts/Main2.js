@@ -1623,7 +1623,7 @@ Stages.copd8.prototype = {
     },
     create: function() {
         sound.destroy();
-        remove(sound);
+        //remove(sound);
         game.add.sprite(0, 0, 'copd8');
         score = this.add.text(450, 250, number.score, { fill: "#ffffff" });
         score.anchor.x = 0.5;
