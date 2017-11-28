@@ -146,9 +146,9 @@ Stages.copd6.prototype = {
         btnN = game.add.sprite(scale.scaleNextW, scale.scaleNextH, 'btnN');
         btnB = game.add.sprite(scale.scaleBackW, scale.scaleBackH, 'btnB');
 
-        var text3 = this.add.text(150, 440, 'เอกสารเพิ่มเติมประกอบเรื่องโรค COPD', {
+        var text3 = this.add.text(440, 440, 'เอกสารเพิ่มเติม', {
             fill: "#ff5252 ",
-            fontSize: '16px'
+            fontSize: '20px'
         });
         text3.anchor.x = 0.5;
         text3.anchor.y = 0.5;
@@ -327,6 +327,7 @@ Stages.playGame.prototype = {
         checkClicko = false;
         sound = game.add.audio('sound');
         sound.play();
+        this.game.stage.disableVisibilityChange = true;
         game.add.sprite(0, 0, 'bg');
         people = game.add.sprite(470, 150, 'people3');
         //game.add.sprite(0, 60, 'board');
@@ -351,45 +352,53 @@ Stages.playGame.prototype = {
         // btnCheang.events.onInputDown.add(this.cheangGame, this);
 
         this.awserBar = game.add.group();
-        Abar = this.awserBar.create(100 - 40, game.world.height - 70, 'Abar');
-        Bbar = this.awserBar.create(250 - 40, game.world.height - 70, 'Bbar');
-        Cbar = this.awserBar.create(390 - 40, game.world.height - 70, 'Cbar');
-        Dbar = this.awserBar.create(550 - 40, game.world.height - 70, 'Dbar');
-        Ebar = this.awserBar.create(700 - 40, game.world.height - 70, 'Ebar');
+        Abar = this.awserBar.create(100, game.world.height - 80, 'Abar');
+        Bbar = this.awserBar.create(250, game.world.height - 80, 'Bbar');
+        Cbar = this.awserBar.create(390, game.world.height - 80, 'Cbar');
+        Dbar = this.awserBar.create(550, game.world.height - 80, 'Dbar');
+        Ebar = this.awserBar.create(700, game.world.height - 80, 'Ebar');
+        airway = this.add.text(Abar.centerX, Abar.centerY, '     A: \n Airway', { fill: '#D50000', fontSize: '20px' });
+        Breathing = this.add.text(Bbar.centerX, Bbar.centerY, '       B: \n Breathing', { fill: '#D50000', fontSize: '20px' });
+        Circulation = this.add.text(Cbar.centerX, Cbar.centerY, '        C: \nCirculation', { fill: '#D50000', fontSize: '20px' });
+        Disability = this.add.text(Dbar.centerX, Dbar.centerY, '       D: \n Disability', { fill: '#D50000', fontSize: '20px' });
+        Exposure = this.add.text(Ebar.centerX, Ebar.centerY, '      E: \nExposure', { fill: '#D50000', fontSize: '20px' });
+        airway.anchor.x = 0.5;
+        airway.anchor.y = 0.5;
+        Breathing.anchor.x = 0.5;
+        Breathing.anchor.y = 0.5;
+        Circulation.anchor.x = 0.5;
+        Circulation.anchor.y = 0.5;
+        Disability.anchor.x = 0.5;
+        Disability.anchor.y = 0.5;
+        Exposure.anchor.x = 0.5;
+        Exposure.anchor.y = 0.5;
+        this.awserBar.add(airway);
+        this.awserBar.add(Breathing);
+        this.awserBar.add(Circulation);
+        this.awserBar.add(Disability);
+        this.awserBar.add(Exposure);
 
         this.bar = game.add.group();
         bar = this.bar.create(30, 230, 'bar');
         bar.scale.setTo(0.9, 0.9);
-        bar1 = this.bar.create(65, 250, 'bar1');
-        bar2 = this.bar.create(175, 250, 'bar2');
-        bar3 = this.bar.create(265, 240, 'bar3');
-        bar4 = this.bar.create(395, 250, 'bar4');
-        bar5 = this.bar.create(515, 240, 'bar5');
+        bar2 = this.bar.create(90, 250, 'bar2');
+        bar3 = this.bar.create(245, 240, 'bar3');
+        bar5 = this.bar.create(450, 240, 'bar5');
         bar5.scale.setTo(0.9, 0.9);
-        bar6 = this.bar.create(655, 235, 'bar6');
-        bar7 = this.bar.create(765, 240, 'bar7');
-        bar8 = this.bar.create(65, 320, 'bar8');
-        bar9 = this.bar.create(185, 320, 'bar9');
-        bar10 = this.bar.create(275, 320, 'bar10');
-        bar11 = this.bar.create(415, 320, 'bar11');
-        bar12 = this.bar.create(515, 310, 'bar12');
-        bar12.scale.setTo(0.9, 0.9);
-        bar13 = this.bar.create(645, 320, 'bar13');
-        bar14 = this.bar.create(765, 320, 'bar14');
-        bar14.scale.setTo(0.8, 0.8);
+        bar6 = this.bar.create(625, 240, 'bar6');
+        bar6.scale.setTo(0.9, 0.9);
+        bar7 = this.bar.create(755, 240, 'bar7');
+        bar8 = this.bar.create(135, 320, 'bar8');
+        bar10 = this.bar.create(315, 320, 'bar10');
+        bar11 = this.bar.create(490, 320, 'bar11');
+        bar13 = this.bar.create(670, 330, 'bar13');
 
-        bar1.inputEnabled = true;
-        bar1.input.enableDrag();
-        bar1.events.onDragStop.add(this.onDragStop1, this);
         bar2.inputEnabled = true;
         bar2.input.enableDrag();
         bar2.events.onDragStop.add(this.onDragStop2, this);
         bar3.inputEnabled = true;
         bar3.input.enableDrag();
         bar3.events.onDragStop.add(this.onDragStop3, this);
-        bar4.inputEnabled = true;
-        bar4.input.enableDrag();
-        bar4.events.onDragStop.add(this.onDragStop4, this);
         bar5.inputEnabled = true;
         bar5.input.enableDrag();
         bar5.events.onDragStop.add(this.onDragStop5, this);
@@ -402,53 +411,20 @@ Stages.playGame.prototype = {
         bar8.inputEnabled = true;
         bar8.input.enableDrag();
         bar8.events.onDragStop.add(this.onDragStop8, this);
-        bar9.inputEnabled = true;
-        bar9.input.enableDrag();
-        bar9.events.onDragStop.add(this.onDragStop9, this);
         bar10.inputEnabled = true;
         bar10.input.enableDrag();
         bar10.events.onDragStop.add(this.onDragStop10, this);
         bar11.inputEnabled = true;
         bar11.input.enableDrag();
         bar11.events.onDragStop.add(this.onDragStop11, this);
-        bar12.inputEnabled = true;
-        bar12.input.enableDrag();
-        bar12.events.onDragStop.add(this.onDragStop12, this);
         bar13.inputEnabled = true;
         bar13.input.enableDrag();
         bar13.events.onDragStop.add(this.onDragStop13, this);
-        bar14.inputEnabled = true;
-        bar14.input.enableDrag();
-        bar14.events.onDragStop.add(this.onDragStop14, this);
 
     },
     checkDrag: function() {
         if (checkD[0] && checkD[1] && checkD[2] && checkD[3] && checkD[4] && checkD[5] && checkD[6] && checkD[7] && checkD[8]) {
             this.game2();
-        }
-    },
-    onDragStop1: function() {
-        if (Phaser.Rectangle.intersects(Ebar.getBounds(), bar1.getBounds())) {
-            bar1.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Abar.getBounds(), bar1.getBounds())) {
-            bar1.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Bbar.getBounds(), bar1.getBounds())) {
-            bar1.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar1.getBounds())) {
-            bar1.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Dbar.getBounds(), bar1.getBounds())) {
-            bar1.destroy();
-            this.checkDrag();
-        } else {
-            bar1.destroy();
-            bar1 = this.bar.create(65, 250, 'bar1');
-            bar1.inputEnabled = true;
-            bar1.input.enableDrag();
-            bar1.events.onDragStop.add(this.onDragStop1, this);
         }
     },
     onDragStop2: function() {
@@ -478,7 +454,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar2.destroy();
-            bar2 = this.bar.create(175, 250, 'bar2');
+            bar2 = this.bar.create(90, 250, 'bar2');
             bar2.inputEnabled = true;
             bar2.input.enableDrag();
             bar2.events.onDragStop.add(this.onDragStop2, this);
@@ -511,34 +487,10 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar3.destroy();
-            bar3 = this.bar.create(265, 240, 'bar3');
+            bar3 = this.bar.create(245, 240, 'bar3');
             bar3.inputEnabled = true;
             bar3.input.enableDrag();
             bar3.events.onDragStop.add(this.onDragStop3, this);
-        }
-    },
-    onDragStop4: function() {
-        if (Phaser.Rectangle.intersects(Ebar.getBounds(), bar4.getBounds())) {
-            bar4.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Abar.getBounds(), bar4.getBounds())) {
-            bar4.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Bbar.getBounds(), bar4.getBounds())) {
-            bar4.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar4.getBounds())) {
-            bar4.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Dbar.getBounds(), bar4.getBounds())) {
-            bar4.destroy();
-            this.checkDrag();
-        } else {
-            bar4.destroy();
-            bar4 = this.bar.create(395, 250, 'bar4');
-            bar4.inputEnabled = true;
-            bar4.input.enableDrag();
-            bar4.events.onDragStop.add(this.onDragStop4, this);
         }
     },
     onDragStop5: function() {
@@ -568,7 +520,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar5.destroy();
-            bar5 = this.bar.create(515, 240, 'bar5');
+            bar5 = this.bar.create(450, 240, 'bar5');
             bar5.scale.setTo(0.9, 0.9);
             bar5.inputEnabled = true;
             bar5.input.enableDrag();
@@ -601,7 +553,8 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar6.destroy();
-            bar6 = this.bar.create(655, 235, 'bar6');
+            bar6 = this.bar.create(625, 240, 'bar6');
+            bar6.scale.setTo(0.9, 0.9);
             bar6.inputEnabled = true;
             bar6.input.enableDrag();
             bar6.events.onDragStop.add(this.onDragStop6, this);
@@ -633,7 +586,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar7.destroy();
-            bar7 = this.bar.create(765, 240, 'bar7');
+            bar7 = this.bar.create(755, 240, 'bar7');
             bar7.inputEnabled = true;
             bar7.input.enableDrag();
             bar7.events.onDragStop.add(this.onDragStop7, this);
@@ -666,34 +619,10 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar8.destroy();
-            bar8 = this.bar.create(65, 320, 'bar8');
+            bar8 = this.bar.create(135, 320, 'bar8');
             bar8.inputEnabled = true;
             bar8.input.enableDrag();
             bar8.events.onDragStop.add(this.onDragStop8, this);
-        }
-    },
-    onDragStop9: function() {
-        if (Phaser.Rectangle.intersects(Ebar.getBounds(), bar9.getBounds())) {
-            bar9.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Abar.getBounds(), bar9.getBounds())) {
-            bar9.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Bbar.getBounds(), bar9.getBounds())) {
-            bar9.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar9.getBounds())) {
-            bar9.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Dbar.getBounds(), bar9.getBounds())) {
-            bar9.destroy();
-            this.checkDrag();
-        } else {
-            bar9.destroy();
-            bar9 = this.bar.create(185, 320, 'bar9');
-            bar9.inputEnabled = true;
-            bar9.input.enableDrag();
-            bar9.events.onDragStop.add(this.onDragStop9, this);
         }
     },
     onDragStop10: function() {
@@ -722,7 +651,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar10.destroy();
-            bar10 = this.bar.create(275, 320, 'bar10');
+            bar10 = this.bar.create(315, 320, 'bar10');
             bar10.inputEnabled = true;
             bar10.input.enableDrag();
             bar10.events.onDragStop.add(this.onDragStop10, this);
@@ -754,37 +683,13 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar11.destroy();
-            bar11 = this.bar.create(415, 320, 'bar11');
+            bar11 = this.bar.create(490, 320, 'bar11');
             bar11.inputEnabled = true;
             bar11.input.enableDrag();
             bar11.events.onDragStop.add(this.onDragStop11, this);
         }
     },
-    onDragStop12: function() {
-        if (Phaser.Rectangle.intersects(Ebar.getBounds(), bar12.getBounds())) {
-            bar12.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Abar.getBounds(), bar12.getBounds())) {
-            bar12.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Bbar.getBounds(), bar12.getBounds())) {
-            bar12.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar12.getBounds())) {
-            bar12.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Dbar.getBounds(), bar12.getBounds())) {
-            bar12.destroy();
-            this.checkDrag();
-        } else {
-            bar12.destroy();
-            bar12 = this.bar.create(515, 310, 'bar12');
-            bar12.scale.setTo(0.9, 0.9);
-            bar12.inputEnabled = true;
-            bar12.input.enableDrag();
-            bar12.events.onDragStop.add(this.onDragStop12, this);
-        }
-    },
+
     onDragStop13: function() {
         if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar13.getBounds())) {
             number.score = number.score + 2;
@@ -811,37 +716,13 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar13.destroy();
-            bar13 = this.bar.create(645, 320, 'bar13');
+            bar13 = this.bar.create(670, 330, 'bar13');
             bar13.inputEnabled = true;
             bar13.input.enableDrag();
             bar13.events.onDragStop.add(this.onDragStop13, this);
         }
     },
-    onDragStop14: function() {
-        if (Phaser.Rectangle.intersects(Ebar.getBounds(), bar14.getBounds())) {
-            bar14.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Abar.getBounds(), bar14.getBounds())) {
-            bar14.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Bbar.getBounds(), bar14.getBounds())) {
-            bar14.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Cbar.getBounds(), bar14.getBounds())) {
-            bar14.destroy();
-            this.checkDrag();
-        } else if (Phaser.Rectangle.intersects(Dbar.getBounds(), bar14.getBounds())) {
-            bar14.destroy();
-            this.checkDrag();
-        } else {
-            bar14.destroy();
-            bar14 = this.bar.create(765, 320, 'bar14');
-            bar14.scale.setTo(0.8, 0.8);
-            bar14.inputEnabled = true;
-            bar14.input.enableDrag();
-            bar14.events.onDragStop.add(this.onDragStop14, this);
-        }
-    },
+
     nextPage: function() {
         //sound.stopAll();
         this.state.start('copd8');
@@ -850,7 +731,8 @@ Stages.playGame.prototype = {
     render: function() {
         // If our timer is running, show the time in a nicely formatted way, else show 'Done!'
         if (timer.running) {
-            game.debug.text(this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)), 65, 50, '#000', '30px');
+            textT = game.debug.text(this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)), 50, 55, 'rgb(1,48,155)', '24px Courier');
+            //textT.pixel('24px')
         } else {
             endlogo = game.add.sprite(450, 250, 'end');
             endlogo.anchor.x = 0.5;
@@ -886,12 +768,23 @@ Stages.playGame.prototype = {
 
         this.choice = game.add.group();
         notify1 = this.choice.create(600, game.world.height - 70, 'notify');
-        notify1.scale.setTo(0.65, 0.65);
+        notify1.scale.setTo(0.85, 0.85);
         position1 = this.choice.create(200, game.world.height - 70, 'position');
-        position1.scale.setTo(0.65, 0.65);
+        position1.scale.setTo(0.85, 0.85);
         oxygen1 = this.choice.create(400, game.world.height - 70, 'oxygen');
-        oxygen1.scale.setTo(0.65, 0.65);
-
+        oxygen1.scale.setTo(0.85, 0.85);
+        textP = game.add.text(position1.centerX, position1.centerY, 'Position', { fill: '#03A9F4', fontSize: '20px' });
+        textO = game.add.text(oxygen1.centerX, oxygen1.centerY, 'Oxygen', { fill: '#03A9F4', fontSize: '20px' });
+        textN = game.add.text(notify1.centerX, notify1.centerY, 'Notify', { fill: '#03A9F4', fontSize: '20px' });
+        textP.anchor.x = 0.5;
+        textP.anchor.y = 0.5;
+        textO.anchor.x = 0.5;
+        textO.anchor.y = 0.5;
+        textN.anchor.x = 0.5;
+        textN.anchor.y = 0.5;
+        this.choice.add(textP);
+        this.choice.add(textO);
+        this.choice.add(textN);
         notify1.inputEnabled = true;
         notify1.events.onInputDown.add(this.checkN, this);
         position1.inputEnabled = true;
@@ -900,11 +793,11 @@ Stages.playGame.prototype = {
         oxygen1.events.onInputDown.add(this.oxygen1, this);
 
         //this.awsers = game.add.group();
-        var w = 15;
-        var h = 90;
+        var w = 20;
+        var h = 100;
         awserD.forEach(D => {
             awser = game.add.text(w, h, D, {
-                font: "14px",
+                font: "18px",
                 fill: "#d50000",
             });
             this.boards.add(awser);
@@ -938,10 +831,19 @@ Stages.playGame.prototype = {
             this.choiceR.destroy();
         }
         this.choiceP = game.add.group();
-        p1 = this.choiceP.create(position1.centerX - 77, game.world.height - 200, 'p1');
-        p2 = this.choiceP.create(position1.centerX - 77, game.world.height - 170, 'p2');
-        p3 = this.choiceP.create(position1.centerX - 77, game.world.height - 140, 'p3');
-        cancleP = this.choiceP.create(position1.centerX - 77, game.world.height - 110, 'cancleP');
+        p1 = this.choiceP.create(position1.centerX, game.world.height - 200, 'p1');
+        p2 = this.choiceP.create(position1.centerX, game.world.height - 170, 'p2');
+        p3 = this.choiceP.create(position1.centerX, game.world.height - 140, 'p3');
+        cancleP = this.choiceP.create(position1.centerX, game.world.height - 110, 'cancleP');
+
+        p1.anchor.x = 0.5;
+        p1.anchor.y = 0.5;
+        p2.anchor.x = 0.5;
+        p2.anchor.y = 0.5;
+        p3.anchor.x = 0.5;
+        p3.anchor.y = 0.5;
+        cancleP.anchor.x = 0.5;
+        cancleP.anchor.y = 0.5;
 
         p1.inputEnabled = true;
         p1.events.onInputDown.add(this.p1, this);
@@ -959,7 +861,7 @@ Stages.playGame.prototype = {
         number.sat = '90%';
         otherp = 'ท่านอนคว่ำ';
         otherp2 = 'หลังให้ O2 sat เพิ่มขึ้นเป็น 90%';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     p2: function() {
         people.destroy();
@@ -972,7 +874,7 @@ Stages.playGame.prototype = {
         number.sat = '92%';
         otherp = 'ท่านอนศีรษะสูง';
         otherp2 = 'หลังให้ O2 sat เพิ่มขึ้นเป็น 92%';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     p3: function() {
         position1.inputEnabled = false;
@@ -981,7 +883,7 @@ Stages.playGame.prototype = {
         number.sat = '92%';
         otherp = 'ท่านอนตะแคงกึ่งคว่ำ';
         otherp2 = 'หลังให้ O2 sat เพิ่มขึ้นเป็น 92%';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     canCelP: function() {
         this.choiceP.destroy();
@@ -1019,11 +921,22 @@ Stages.playGame.prototype = {
         }
         this.choiceO = game.add.group();
 
-        o1 = this.choiceO.create(oxygen1.centerX - 77, game.world.height - 260 + 30, 'o1');
-        o2 = this.choiceO.create(oxygen1.centerX - 77, game.world.height - 230 + 30, 'o2');
-        o3 = this.choiceO.create(oxygen1.centerX - 77, game.world.height - 200 + 30, 'o3');
-        o4 = this.choiceO.create(oxygen1.centerX - 77, game.world.height - 170 + 30, 'o4');
-        cancleO = this.choiceO.create(oxygen1.centerX - 77, game.world.height - 110, 'cancleO');
+        o1 = this.choiceO.create(oxygen1.centerX, game.world.height - 260 + 30, 'o1');
+        o2 = this.choiceO.create(oxygen1.centerX, game.world.height - 230 + 30, 'o2');
+        o3 = this.choiceO.create(oxygen1.centerX, game.world.height - 200 + 30, 'o3');
+        o4 = this.choiceO.create(oxygen1.centerX, game.world.height - 170 + 30, 'o4');
+        cancleO = this.choiceO.create(oxygen1.centerX, game.world.height - 110, 'cancleO');
+
+        o1.anchor.x = 0.5;
+        o1.anchor.y = 0.5;
+        o2.anchor.x = 0.5;
+        o2.anchor.y = 0.5;
+        o3.anchor.x = 0.5;
+        o3.anchor.y = 0.5;
+        o4.anchor.x = 0.5;
+        o4.anchor.y = 0.5;
+        cancleO.anchor.x = 0.5;
+        cancleO.anchor.y = 0.5;
 
         o1.inputEnabled = true;
         o1.events.onInputDown.add(this.o1, this);
@@ -1083,7 +996,7 @@ Stages.playGame.prototype = {
         number.bp = '150/90';
         number.rate = 102;
         othero = 'และให้ O2 mask with bag';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     o2: function() {
         if (!position1.inputEnabled) {
@@ -1114,7 +1027,7 @@ Stages.playGame.prototype = {
         number.bp = '150/90';
         number.rate = 102;
         othero = 'และให้ Simple mask';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     o3: function() {
         this.checkP();
@@ -1132,7 +1045,7 @@ Stages.playGame.prototype = {
         number.bp = '120/80';
         number.rate = 98
         othero = 'และให้ Oxygen Cannula 3 LPM';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     o4: function() {
         this.checkP();
@@ -1148,7 +1061,7 @@ Stages.playGame.prototype = {
         number.bp = '150/90';
         number.rate = 102;
         othero = 'และให้ Oxygen Cannula 6 LPM';
-        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
+        other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
     },
     canCelO: function() {
         this.choiceO.destroy();
@@ -1171,7 +1084,7 @@ Stages.playGame.prototype = {
         var h = 60;
         other1.forEach(D => {
             awser = game.add.text(w, h, D, {
-                font: "15px",
+                font: "18px",
                 fill: "#000000",
             });
             this.choice3.add(awser);
@@ -1181,17 +1094,17 @@ Stages.playGame.prototype = {
         h = 135;
         other2.forEach(D => {
             awser = game.add.text(w, h, D, {
-                font: "15px",
+                font: "18px",
                 fill: "#000000",
             });
             this.choice3.add(awser);
 
             h += 20;
         });
-        h = 245;
+        h = 230;
         other3.forEach(D => {
             awser = game.add.text(w, h, D, {
-                font: "15px",
+                font: "18px",
                 fill: "#000000",
             });
             this.choice3.add(awser);
@@ -1201,7 +1114,7 @@ Stages.playGame.prototype = {
         h = 350;
         other4.forEach(D => {
             awser = game.add.text(w, h, D, {
-                font: "15px",
+                font: "18px",
                 fill: "#000000",
             });
             this.choice3.add(awser);
@@ -1424,35 +1337,51 @@ Stages.playGame.prototype = {
     game4: function() {
         this.choice3.destroy();
         game.add.sprite(0, 80, 'board');
-        game.add.text(20, 90, 'Treatment', { fill: '#d50000', font: '20px' });
+        game.add.text(60, 100, 'Treatment', { fill: '#d50000', font: '20px' });
 
         var w = 15;
         var h = 130;
         plan.forEach(D => {
             game.add.text(w, h, D, {
-                font: "14px",
+                font: "18px",
                 fill: "#000000",
             })
 
             h += 22;
         });
 
-
         this.peoples = game.add.group();
         this.peoples.add(people);
 
         this.choice4 = game.add.group();
-        mediecation2 = this.choice4.create(200 - 100, game.world.height - 70, 'mediecation');
-        mediecation2.scale.setTo(0.65, 0.65);
-        position1 = this.choice4.create(350 - 100, game.world.height - 70, 'position');
-        position1.scale.setTo(0.65, 0.65);
-        oxygen1 = this.choice4.create(500 - 100, game.world.height - 70, 'oxygen');
-        oxygen1.scale.setTo(0.65, 0.65);
-        vs2 = this.choice4.create(650 - 100, game.world.height - 70, 'vs');
-        vs2.scale.setTo(0.65, 0.65);
-        recomend2 = this.choice4.create(800 - 100, game.world.height - 70, 'recomend');
-        recomend2.scale.setTo(0.65, 0.65);
+        mediecation2 = this.choice4.create(30 + 15, game.world.height - 70, 'mediecation');
+        mediecation2.scale.setTo(0.95, 0.85);
+        position1 = this.choice4.create(350 - 120, game.world.height - 70, 'position');
+        position1.scale.setTo(0.85, 0.85);
+        oxygen1 = this.choice4.create(500 - 120, game.world.height - 70, 'oxygen');
+        oxygen1.scale.setTo(0.85, 0.85);
+        vs2 = this.choice4.create(650 - 120, game.world.height - 70, 'vs');
+        vs2.scale.setTo(0.75, 0.85);
+        recomend2 = this.choice4.create(800 - 115, game.world.height - 70, 'recomend');
+        recomend2.scale.setTo(0.85, 0.85);
         finish = this.choice4.create(800, game.world.height - 70, 'finish');
+
+        textM = game.add.text(mediecation2.centerX, mediecation2.centerY, 'Medication', { fill: '#03A9F4', fontSize: '20px' });
+        textP = game.add.text(position1.centerX, position1.centerY, 'Position', { fill: '#03A9F4', fontSize: '20px' });
+        textO = game.add.text(oxygen1.centerX, oxygen1.centerY, 'Oxygen', { fill: '#03A9F4', fontSize: '20px' });
+        textV = game.add.text(vs2.centerX, vs2.centerY, 'V/S', { fill: '#03A9F4', fontSize: '20px' });
+        textR = game.add.text(recomend2.centerX, recomend2.centerY, 'Advice', { fill: '#03A9F4', fontSize: '20px' });
+
+        textM.anchor.x = 0.5;
+        textM.anchor.y = 0.5;
+        textP.anchor.x = 0.5;
+        textP.anchor.y = 0.5;
+        textO.anchor.x = 0.5;
+        textO.anchor.y = 0.5;
+        textV.anchor.x = 0.5;
+        textV.anchor.y = 0.5;
+        textR.anchor.x = 0.5;
+        textR.anchor.y = 0.5;
 
         finish.inputEnabled = true;
         finish.events.onInputDown.add(this.finish, this);
@@ -1476,14 +1405,14 @@ Stages.playGame.prototype = {
         if (!position1.inputEnabled) {
             if (checkP2) {
                 people9 = game.add.sprite(470, 115, 'people9');
-                game.time.events.add(5000, this.rmPeople9, this, people9);
+                game.time.events.add(1000, this.rmPeople9, this, people9);
             } else {
                 people9 = game.add.sprite(490, 150, 'people9');
-                game.time.events.add(5000, this.rmPeople9, this, people9);
+                game.time.events.add(1000, this.rmPeople9, this, people9);
             }
         } else {
             people9 = game.add.sprite(490, 150, 'people9');
-            game.time.events.add(5000, this.rmPeople9, this, people9);
+            game.time.events.add(1000, this.rmPeople9, this, people9);
         }
         console.log(checkO3);
 
@@ -1625,29 +1554,30 @@ Stages.copd8.prototype = {
         this.game.sound.stopAll();
         //remove(sound);
         game.add.sprite(0, 0, 'copd8');
-        score = this.add.text(450, 250, number.score, { fill: "#ffffff" });
+        score = this.add.text(450, 250, number.score + ' คะแนน', { fill: "#ffffff" });
         score.anchor.x = 0.5;
         score.anchor.y = 0.5;
         if (number.score < 60) {
-            var text1 = game.add.text(450, 280, 'ควรปรับปรุง ทบทวนเนื้อหาใหม่', { fill: '#d50000', font: '20px' });
+            var text1 = game.add.text(450, 280, 'ควรปรับปรุง ทบทวนเนื้อหาใหม่', { fill: '#FF80AB', font: '24px' });
             text1.anchor.x = 0.5;
             btnHome = game.add.sprite(scale.scaleNextW, scale.scaleNextH, 'btnHome');
+            btnHome.scale.setTo(1.4, 1.4);
             btnHome.inputEnabled = true;
             btnHome.events.onInputDown.add(this.btnHome, this);
         } else if (number.score >= 60 && number.score < 80) {
-            var text2 = game.add.text(450, 280, 'ดี', { fill: '#d50000', font: '20px' });
+            var text2 = game.add.text(450, 280, 'ดี', { fill: '#FFFF8D', font: '24px' });
             text2.anchor.x = 0.5;
             btnN = game.add.sprite(scale.scaleNextW, scale.scaleNextH, 'btnN');
             btnN.inputEnabled = true;
             btnN.events.onInputDown.add(this.btnN, this);
         } else if (number.score >= 80) {
-            var text3 = game.add.text(450, 280, 'ดีเยี่ยม', { fill: '#d50000', font: '20px' });
+            var text3 = game.add.text(450, 280, 'ดีเยี่ยม', { fill: '#4CAF50', font: '24px' });
             text3.anchor.x = 0.5;
             btnN = game.add.sprite(scale.scaleNextW, scale.scaleNextH, 'btnN');
             btnN.inputEnabled = true;
             btnN.events.onInputDown.add(this.btnN, this);
         }
-        var more = game.add.text(450, 320, 'เรียนรู้เพิ่มเติม', { fill: '#ffffff', font: '20px' });
+        var more = game.add.text(450, 320, 'เรียนรู้เพิ่มเติม', { fill: '#E91E63', font: '24px' });
         more.anchor.x = 0.5;
         more.inputEnabled = true;
         more.events.onInputDown.add(this.more, this);
@@ -1687,7 +1617,7 @@ Stages.copd9.prototype = {
     }
 };
 Stages.copd10 = function(game) {
-    var correct, wrong, des, i, question;
+    var correct, wrong, des, i, question, bmpText;
 };
 Stages.copd10.prototype = {
     preload: function() {
@@ -1698,12 +1628,12 @@ Stages.copd10.prototype = {
         i = 0;
         game.add.sprite(0, 0, 'afterTest');
         //des = game.add.text(450,250,'');
-        question = game.add.text(450, 200, questions[i]);
+        question = game.add.text(450, 130, questions[i]);
         question.anchor.x = 0.5;
-        question.anchor.y = 0.5;
 
-        correct = game.add.text(400, 300, 'ถูกต้อง');
-        wrong = game.add.text(400, 350, 'ผิด');
+
+        correct = game.add.text(400, 300, 'ถูกต้อง', { fill: '#4CAF50' });
+        wrong = game.add.text(400, 350, 'ผิด', { fill: '#E91E63' });
         correct.inputEnabled = true;
         wrong.inputEnabled = true;
         correct.events.onInputDown.add(this.correct, this);
@@ -1816,10 +1746,21 @@ Stages.copd11.prototype = {
         text2 = game.add.text(450, 250, 'การให้การพยาบาลผู้ป่วย ' + number.score + ' คะแนน');
         text2.anchor.x = 0.5;
         text2.anchor.y = 0.5;
-        btnHome = game.add.sprite(scale.scaleNextW, scale.scaleNextH, 'btnHome');
+        if (number.score < 60) {
+            var text1 = game.add.text(450, 280, 'ควรปรับปรุง ทบทวนเนื้อหาใหม่', { fill: '#FF80AB', font: '30px' });
+            text1.anchor.x = 0.5;
+        } else if (number.score >= 60 && number.score < 80) {
+            var text2 = game.add.text(450, 280, 'ดี', { fill: '#FFFF8D', font: '30px' });
+            text2.anchor.x = 0.5;
+        } else if (number.score >= 80) {
+            var text3 = game.add.text(450, 280, 'ดีเยี่ยม', { fill: '#4CAF50', font: '30px' });
+            text3.anchor.x = 0.5;
+        }
+        btnHome = game.add.sprite(scale.scaleNextW + 10, scale.scaleNextH, 'btnHome');
         btnHome.inputEnabled = true;
         btnHome.events.onInputDown.add(this.btnHome, this);
-        var more = game.add.text(300, 400, 'เรียนรู้เพิ่มเติม', { fill: '#ffffff', font: '20px' });
+        btnHome.scale.setTo(1.4, 1.4);
+        var more = game.add.text(400, 390, 'แผนการพยาบาลผู้ป่วย โรค COPD', { fill: '#F50057', font: '24px' });
         more.anchor.x = 0.5;
         more.inputEnabled = true;
         more.events.onInputDown.add(this.more, this);
@@ -1833,9 +1774,9 @@ Stages.copd11.prototype = {
 };
 var scale = {
     'scaleNextW': 780,
-    'scaleBackW': 740,
+    'scaleBackW': 675,
     'scaleNextH': 430,
-    'scaleBackH': 390
+    'scaleBackH': 430
 };
 
 var number = { score: 0, rate: 96, rr: 32, sat: '90%', bp: '130/80', t: 37.2, test: 0 };
@@ -1849,10 +1790,10 @@ var sound;
 var otherp = '';
 var otherp2 = '';
 var othero = '';
-var other1 = ['ดิฉันคิดว่าน่าจะเอกซเรย์ละมีการให้ยาพ่นและไม่ทราบว่า', 'คุณหมอจะเข้ามาดูผู้ป่วยไหมค่ะ'];
-var other2 = ['วันนี้มี case รับใหม่ นายรัก ใจดี อายุ 68 ปี มีโรคประจำตัว COPD รักษา', 'ด้วย  Ventolin MDI 2 puff prn,  Seretide inhaler 1 puff bid,', 'Sulbutamol 5 mg 1 tab tid pc '];
-var other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm เสียงหัวใจปกติ BP ', '130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) O2 sat เหลือ 90% ตอนนี้ได้ให้การ', 'พยาบาลจัด' + otherp + othero + otherp2]
-var other4 = ['ดิฉันนางสาวดวงใจ ดีดวง พยาบาล Incharge ห้อง ER', 'ขอรายงาน Cause ผู้ป่วยชื่อ นายรัก ใจดี เตียง 10'];
+var other1 = ['ดิฉันคิดว่าน่าจะเอกซเรย์ละมีการให้ยาพ่นและ\nไม่ทราบว่าคุณหมอจะเข้ามาดูผู้ป่วยไหมค่ะ'];
+var other2 = ['วันนี้มี case รับใหม่ นายรัก ใจดี อายุ 68 ปี มีโรคประจำตัว \nCOPD รักษาด้วย  Ventolin MDI 2 puff prn, Seretide \ninhaler 1 puff bid, Sulbutamol 5 mg 1 tab tid pc '];
+var other3 = ['ผู้ป่วยรู้สึกตัวดี อุณหภูมิกาย 37.2 องศาเซลเซียส อัตราการหายใจ 30 bpm \nเสียงหัวใจปกติ BP 130/80 mmHg ฟังปอดพบเสียง wheezing (bilateral) \nO2 sat เหลือ 90% ตอนนี้ได้ให้การพยาบาลจัด' + otherp + '\n' + othero + otherp2];
+var other4 = ['ดิฉันนางสาวดวงใจ ดีดวง พยาบาล Incharge ห้อง \nขอรายงาน Cause ผู้ป่วยชื่อ นายรัก ใจดี เตียง 10'];
 var checkC = 0;
 var c = 0;
 var checkD = [false, false, false, false, false, false, false, false, false];
@@ -1865,16 +1806,16 @@ var checkm2 = true;
 var checkm3 = true;
 var questions = ['1. โรคปอดอุดกั้นเรื้อรัง มีความผิดปกติเฉพาะที่ถุงลมปอดเท่านั้น',
     '2. การสูบบุหรี่เป็นสาเหตุสำคัญที่ทำให้เกิดโรคปอดอุดกั้นเรื้อรัง',
-    '3. อาการที่แสดงถึงระยะ Acute exacerbation of COPD คือ ไอ มีเสมหะข้นขึ้น และหายใจเร็ว',
-    '4. ข้อมูลที่บ่งชี้ว่าผู้ป่วยมีพยาธิสภาพของการตีบแคบของหลอดลม คือ การฟังเสียงปอดพบ wheezing ',
-    '5. ผู้ป่วยรู้สึกดี หายใจเหนื่อยหอบมาก ไอ เสมหะขาวขุ่น ควรประเมิน Circulation ตามหลัก ABCDE',
-    '6. การจัดท่าศีรษะสูง (Fowler’s position) ในผู้ป่วยโรคปอดอุดกั้นเรื้อรัง ช่วยให้หายใจสะดวกมีการระบายเสมหะได้ดีขึ้น',
-    '7. เมื่อฟังปอดพบเสียง wheezing อัตราการหายใจ  32 /min วัด O2Sat ได้ 92% พิจารณาให้ O2 Mask with bag 10  L/M',
-    '8. หลังจากจัดท่านอนศีรษะสูง ให้ออกซิเจนไป 5 นาที พบว่าอัตราการหายใจ  34 /min O2 Sat 90% ควรพิจารณารายงานแพทย์เพื่อให้การรักษาเพิ่มเติม',
-    '9. ข้อมูลผู้ป่วย “หลังให้ออกซิเจน ไปแล้ว 5 นาที พบว่าอัตราการหายใจ  34 /min O2 Sat 90% สัญญาณชีพ RR 30 /min PR 98 /min BP 149/93 mmHg”  เป็นการรายงานสถานการณ์ (Situation: S)   ตามหลัก SBAR',
-    '10. ยา Berodual เป็นยาขยายหลอดลมชนิดออกฤทธิ์สั้น สามารถให้ได้ทุก 4-6 ชั่วโมง',
-    '11. กรณีผู้ป่วยหายใจหอบเหนื่อยมาก RR 36 /min PR 122 /min O2Sat 87% ควรรายงานแพทย์และเตรียมใส่เครื่องช่วยหายใจ',
-    '12. ผู้ป่วยโรคปอดอุดกั้นเรื้อรังควรฝึกการหายใจแบบ Pursed lip breathing exercise เพื่อเพิ่มประสิทธิภาพของปอดและลดการคั่งของ CO2'
+    '3. อาการที่แสดงถึงระยะ Acute exacerbation of COPD คือ \n ไอ มีเสมหะข้นขึ้น และหายใจเร็ว',
+    '4. ข้อมูลที่บ่งชี้ว่าผู้ป่วยมีพยาธิสภาพของการตีบแคบของหลอดลม คือ \n การฟังเสียงปอดพบ wheezing ',
+    '5. ผู้ป่วยรู้สึกดี หายใจเหนื่อยหอบมาก ไอ เสมหะขาวขุ่น ควรประเมิน\n Circulation ตามหลัก ABCDE',
+    '6. การจัดท่าศีรษะสูง (Fowler’s position) ในผู้ป่วยโรคปอดอุดกั้นเรื้อรัง \nช่วยให้หายใจสะดวกมีการระบายเสมหะได้ดีขึ้น',
+    '7. เมื่อฟังปอดพบเสียง wheezing อัตราการหายใจ  32 /min \nวัด O2Sat ได้ 92% พิจารณาให้ O2 Mask with bag 10  L/M',
+    '8. หลังจากจัดท่านอนศีรษะสูง ให้ออกซิเจนไป 5 นาที \n พบว่าอัตราการหายใจ 34 /min O2 Sat 90% \nควรพิจารณารายงานแพทย์เพื่อให้การรักษาเพิ่มเติม',
+    '9. ข้อมูลผู้ป่วย “หลังให้ออกซิเจน ไปแล้ว 5 นาที พบว่าอัตรา\nการหายใจ  34 /min  O2 Sat 90% สัญญาณชีพ RR 30 /min \nPR 98 /min BP 149/93 mmHg” เป็นการรายงานสถานการณ์ \n(Situation: S) ตามหลัก SBAR',
+    '10. ยา Berodual เป็นยาขยายหลอดลมชนิดออกฤทธิ์สั้น\n สามารถให้ได้ทุก 4-6 ชั่วโมง',
+    '11. กรณีผู้ป่วยหายใจหอบเหนื่อยมาก RR 36 /min PR 122 /min \n O2Sat 87% ควรรายงานแพทย์และเตรียมใส่เครื่องช่วยหายใจ',
+    '12. ผู้ป่วยโรคปอดอุดกั้นเรื้อรังควรฝึกการหายใจแบบ \n Pursed lip breathing exercise เพื่อเพิ่ม\nประสิทธิภาพของปอดและลดการคั่งของ CO2'
 ];
 var game = new Phaser.Game(900, 500, Phaser.AUTO, 'game');
 game.state.add('startgame', Stages.startGame);
@@ -1889,4 +1830,4 @@ game.state.add('copd8', Stages.copd8);
 game.state.add('copd9', Stages.copd9);
 game.state.add('copd10', Stages.copd10);
 game.state.add('copd11', Stages.copd11);
-game.state.start('startgame');
+game.state.start('copd8');
