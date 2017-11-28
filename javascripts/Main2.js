@@ -168,7 +168,7 @@ Stages.copd6.prototype = {
         this.state.start('copd5');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/Game/raw/develop/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%9B%E0%B8%AD%E0%B8%94%E0%B8%AD%E0%B8%B8%E0%B8%94%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%87.pdf");
+        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
     }
 };
 
@@ -1583,7 +1583,7 @@ Stages.copd8.prototype = {
         more.events.onInputDown.add(this.more, this);
     },
     more: function() {
-        window.open("https://github.com/supertodtor/Game/raw/develop/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%9B%E0%B8%AD%E0%B8%94%E0%B8%AD%E0%B8%B8%E0%B8%94%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%87.pdf");
+        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
     },
     btnN: function() {
         this.state.start('copd9');
@@ -1769,7 +1769,7 @@ Stages.copd11.prototype = {
         game.state.start('copd1');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/Game/raw/develop/%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%82%E0%B8%A3%E0%B8%84%E0%B8%9B%E0%B8%AD%E0%B8%94%E0%B8%AD%E0%B8%B8%E0%B8%94%E0%B8%81%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%87.pdf");
+        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
     },
 };
 var scale = {
@@ -1830,4 +1830,4 @@ game.state.add('copd8', Stages.copd8);
 game.state.add('copd9', Stages.copd9);
 game.state.add('copd10', Stages.copd10);
 game.state.add('copd11', Stages.copd11);
-game.state.start('copd8');
+game.state.start('startgame');
