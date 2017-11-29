@@ -168,7 +168,7 @@ Stages.copd6.prototype = {
         this.state.start('copd5');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://l.facebook.com/l.php?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft59.2708-21%2F23555625_1741939149192266_663063343283568640_n.pdf%2F1pdf.pdf%3Foh%3Df3775d7722b812d66d7825be1b0b5e0d%26oe%3D5A213C79%26dl%3D1&h=ATPyzznVHa_9KNh7uhN43sE3o5giEJ57Mkz25sAmp7OzbH2jp5kUc_-wJfjug_TPYK-QSgRBz48DztjY3U6rhsQIsY2iXnK4oLWpQf1RkJWTXQd9V7nCS3miGJJjgoYt87_Puvk-e_9otboaYWodPoPS&s=1&enc=AZO4cgXsfcvFlTrFRjdl88w-xGepNcd8rDdaHugWOjkUjsUTxaw245C04VUfamcbFVwveUx_oq--w8IAXg8-1FNeyw4mGwr0deh73nyI0OiotQ");
     }
 };
 
@@ -1589,7 +1589,7 @@ Stages.copd8.prototype = {
         more.events.onInputDown.add(this.more, this);
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://l.facebook.com/l.php?u=https%3A%2F%2Fcdn.fbsbx.com%2Fv%2Ft59.2708-21%2F23555625_1741939149192266_663063343283568640_n.pdf%2F1pdf.pdf%3Foh%3Df3775d7722b812d66d7825be1b0b5e0d%26oe%3D5A213C79%26dl%3D1&h=ATPyzznVHa_9KNh7uhN43sE3o5giEJ57Mkz25sAmp7OzbH2jp5kUc_-wJfjug_TPYK-QSgRBz48DztjY3U6rhsQIsY2iXnK4oLWpQf1RkJWTXQd9V7nCS3miGJJjgoYt87_Puvk-e_9otboaYWodPoPS&s=1&enc=AZO4cgXsfcvFlTrFRjdl88w-xGepNcd8rDdaHugWOjkUjsUTxaw245C04VUfamcbFVwveUx_oq--w8IAXg8-1FNeyw4mGwr0deh73nyI0OiotQ");
     },
     btnN: function() {
         this.state.start('copd9');
