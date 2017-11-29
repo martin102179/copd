@@ -168,7 +168,7 @@ Stages.copd6.prototype = {
         this.state.start('copd5');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
     }
 };
 
@@ -383,15 +383,15 @@ Stages.playGame.prototype = {
         bar.scale.setTo(0.9, 0.9);
         bar2 = this.bar.create(90, 250, 'bar2');
         bar3 = this.bar.create(245, 240, 'bar3');
-        bar5 = this.bar.create(450, 240, 'bar5');
+        bar5 = this.bar.create(440, 240, 'bar5');
         bar5.scale.setTo(0.9, 0.9);
         bar6 = this.bar.create(625, 240, 'bar6');
         bar6.scale.setTo(0.9, 0.9);
-        bar7 = this.bar.create(755, 240, 'bar7');
-        bar8 = this.bar.create(135, 320, 'bar8');
-        bar10 = this.bar.create(315, 320, 'bar10');
-        bar11 = this.bar.create(490, 320, 'bar11');
-        bar13 = this.bar.create(670, 330, 'bar13');
+        bar7 = this.bar.create(765, 240, 'bar7');
+        bar8 = this.bar.create(140, 320, 'bar8');
+        bar10 = this.bar.create(320, 320, 'bar10');
+        bar11 = this.bar.create(500, 320, 'bar11');
+        bar13 = this.bar.create(675, 330, 'bar13');
 
         bar2.inputEnabled = true;
         bar2.input.enableDrag();
@@ -520,7 +520,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar5.destroy();
-            bar5 = this.bar.create(450, 240, 'bar5');
+            bar5 = this.bar.create(440, 240, 'bar5');
             bar5.scale.setTo(0.9, 0.9);
             bar5.inputEnabled = true;
             bar5.input.enableDrag();
@@ -586,7 +586,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar7.destroy();
-            bar7 = this.bar.create(755, 240, 'bar7');
+            bar7 = this.bar.create(765, 240, 'bar7');
             bar7.inputEnabled = true;
             bar7.input.enableDrag();
             bar7.events.onDragStop.add(this.onDragStop7, this);
@@ -619,7 +619,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar8.destroy();
-            bar8 = this.bar.create(135, 320, 'bar8');
+            bar8 = this.bar.create(140, 320, 'bar8');
             bar8.inputEnabled = true;
             bar8.input.enableDrag();
             bar8.events.onDragStop.add(this.onDragStop8, this);
@@ -651,7 +651,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar10.destroy();
-            bar10 = this.bar.create(315, 320, 'bar10');
+            bar10 = this.bar.create(320, 320, 'bar10');
             bar10.inputEnabled = true;
             bar10.input.enableDrag();
             bar10.events.onDragStop.add(this.onDragStop10, this);
@@ -683,7 +683,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar11.destroy();
-            bar11 = this.bar.create(490, 320, 'bar11');
+            bar11 = this.bar.create(500, 320, 'bar11');
             bar11.inputEnabled = true;
             bar11.input.enableDrag();
             bar11.events.onDragStop.add(this.onDragStop11, this);
@@ -716,7 +716,7 @@ Stages.playGame.prototype = {
             this.checkDrag();
         } else {
             bar13.destroy();
-            bar13 = this.bar.create(670, 330, 'bar13');
+            bar13 = this.bar.create(675, 330, 'bar13');
             bar13.inputEnabled = true;
             bar13.input.enableDrag();
             bar13.events.onDragStop.add(this.onDragStop13, this);
@@ -1327,11 +1327,17 @@ Stages.playGame.prototype = {
                 this.warning();
             }
         } else {
-            warning2 = this.choice3.create(450, 250, 'warning2');
-            warning2.anchor.x = 0.5;
-            warning2.anchor.y = 0.5;
-            warning2.inputEnabled = true;
-            warning2.events.onInputDown.add(this.finish, this);
+            if (checkC == 3) {
+                this.game4();
+            } else if (checkC == 4) {
+                this.game4();
+            } else {
+                warning2 = this.choice3.create(450, 250, 'warning2');
+                warning2.anchor.x = 0.5;
+                warning2.anchor.y = 0.5;
+                warning2.inputEnabled = true;
+                warning2.events.onInputDown.add(this.finish, this);
+            }
         }
     },
     game4: function() {
@@ -1583,7 +1589,7 @@ Stages.copd8.prototype = {
         more.events.onInputDown.add(this.more, this);
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
     },
     btnN: function() {
         this.state.start('copd9');
@@ -1769,7 +1775,7 @@ Stages.copd11.prototype = {
         game.state.start('copd1');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
     },
 };
 var scale = {
