@@ -168,7 +168,7 @@ Stages.copd6.prototype = {
         this.state.start('copd5');
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
     }
 };
 
@@ -1589,7 +1589,7 @@ Stages.copd8.prototype = {
         more.events.onInputDown.add(this.more, this);
     },
     more: function() {
-        window.open("https://github.com/supertodtor/copd/raw/master/1pdf.pdf");
+        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
     },
     btnN: function() {
         this.state.start('copd9');
