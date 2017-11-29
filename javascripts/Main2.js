@@ -1775,7 +1775,7 @@ Stages.copd11.prototype = {
         game.state.start('copd1');
     },
     more: function() {
-        window.open("https://github.com/BCNgen27/copd/blob/master/1pdf.pdf");
+        window.open("https://github.com/supertodtor/copd/raw/master/1.docx");
     },
 };
 var scale = {
